@@ -1,0 +1,329 @@
+@bgColor:#F1F1F1;
+
+.actives:active{
+ background: rgba(0, 0, 0, 0.1);
+}
+
+//页面属性
+// 头部
+.header{
+
+    height: 1.82rem;
+    background: #299FFE;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding-left: .4rem;
+    font-size: .24rem;
+    background-size: 100% 100%;
+    background-image: url("../img/header_bg.png");
+
+    .left,
+    .right{
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .left{
+        span{
+            display: inline-block;
+            width: .84rem;
+            height: 1.08rem;
+            background-size: 100% 100%;
+        }
+        .bronze-medal{
+            background-image: url('../img/bronze.png');
+        }
+        .silver-medal{
+            background-image: url('../img/silver.png');
+        } 
+        .gold-medal{
+            background-image: url('../img/gold.png');
+        }
+    }
+    .right{
+        padding-left: .34rem;
+        flex: 1;
+        
+        .type{
+            font-size: .36rem;
+            margin-bottom: .14rem;
+            display: flex;
+            align-items: center;
+        }
+        a{
+           flex: 1;
+           display: flex;
+           align-items: center;
+            span{
+                display: inline-block;
+                width: 1.16rem;
+                height: .34rem;
+                margin-left: .16rem;
+                background-size: 100% 100%;
+                background-image: url('../img/level.png')
+                  
+            } 
+        }
+    }
+}
+.content{
+  padding:.4rem;
+  font-size: .3rem;
+  color: #333333;
+  letter-spacing: 0.64px;
+  .title{
+    border-left: .1rem solid  #299FFE;
+    padding-left: .16rem;
+    margin-bottom: .3rem;
+   }
+   .card{
+       background: #FFFFFF;
+       padding: .2rem .32rem;
+       padding-right: .73rem;
+       margin-bottom: .2rem;
+       position: relative;
+       >div{
+           display: flex;
+           align-items: center;
+           .icon{
+            margin-right: .16rem;
+            width: .52rem;
+            height: .52rem;
+            background-size: 100% 100%;
+           }
+       }
+       .niubi,
+       .fuwufen,
+       .chengjiaolv{
+           display: flex;
+           align-items: center;
+           font-size: .24rem;
+           font-weight: 700;
+        //    background: red;
+       }
+       .niubi .icon{
+
+         background-image: url('../img/niubi.png')
+       }
+       .fuwufen .icon{
+
+         background-image: url('../img/fuwufen.png')
+       }
+       .chengjiaolv .icon{
+
+        background-image: url('../img/chengjiaolv.png')
+      }
+       .progress{
+        //    background: red;
+           margin-top: .09rem;
+           height: .3rem;
+        //    border-radius: 8px;
+           position: relative;
+           .progress-bg{
+               width: 100%;
+               border-radius: 8px;
+               height: .12rem;
+               background: #E8E8E8;
+               overflow-x: hidden;
+               .now-value{
+                width: 0;
+                height: 100%;
+                border-radius: 8px;
+                background: #299FFE;
+                animation: animate-positive 1s;
+            }
+           }
+           .progress-bg-dev{
+               height: .125rem;
+           }
+           
+          
+           .point{
+            width: .25rem!important;
+            height: .25rem !important;
+            background-size: 100% 100%;
+
+            background-image: url('../img/point.png');
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+           }
+           .point.point-gold{
+              right: 0;
+            }
+            .point.point-silver{
+            //   right: 5%;
+            }
+          
+       }
+       .point-div{
+        position: absolute;
+        top: .158rem;
+        transform: translateY(-50%);
+        font-size: .24rem;
+          >div{
+            text-align: center;
+          }
+          div:first-child{
+            margin-bottom: .45rem;
+          }
+        }
+        .point-div-gold{
+            right: -.25rem;
+        }
+        .point-div-silver{
+            // left: 48%;
+            transform: translateY(-50%);
+            div:last-child{
+                text-align: right;
+            }
+        }
+        .niubi-silver{
+             left: 41%;   
+        } 
+        .fuwu-silver{
+            left:84%;
+           
+        }
+        .cjlv-silver{
+            left:80%;
+        }
+        .niubi-silver-point{
+            right: 50%;
+        }
+        .fuwu-silver-point{
+            right:5% !important;
+        }
+        .cjlv-silver-point{
+            right: 10% !important;
+        }
+        .current-value{
+            // background: red;
+            margin-top: .1rem;
+            font-size: .24rem;
+            
+         }
+        
+       .dabiao{
+           position: absolute;
+           right: 0;
+           top: 0;
+           width: .83rem;
+           height: .83rem;
+           background-size: 100% 100%;           
+       }
+       .dabiao.show{
+          background-image: url('../img/dabiao.png');
+       }
+   }
+   .card:first-child{
+       .point-div{
+           top: .169rem;
+       }
+   }
+   .card:last-child{
+     margin-bottom: 0;
+   }
+
+  .exchange-des{
+      margin-top: .6rem;
+      margin-bottom: 1.4rem;
+      .des{
+          margin-top: .32rem;
+          font-size: .24rem;
+          color: #666666;
+          letter-spacing: 0.05px;
+          p{
+              margin-bottom: .14rem;
+          }
+      }
+  }
+}
+.div-fixed{
+    position: fixed;
+    bottom: .3rem;
+    left: .4rem;
+    right: .4rem;
+    .flag{
+        position: relative;
+        .tops{
+            display: none;
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            .detail{
+                position: relative;
+                background: #33CC11;
+                border-radius: .08rem;
+                padding: .08rem .26rem;
+                font-size: .3rem;
+                color: #ffffff;
+            }
+            .detail::after{
+                content: "";
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 6px solid #33CC11;
+                display: block;
+                // transform: rotate(-180deg);
+            }
+
+        }
+        .tops.show{
+           display: block;
+        }
+    }
+}
+.btn-exchange{
+ 
+  text-align: center;
+  padding: .12rem 0;
+  font-size: .34rem;
+  color: #ffffff;
+  background: #299FFE;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.30);
+  border-radius: 2px;
+}
+
+@keyframes animate-positive{
+    0% { width: 0; }
+}
+
+
+
+@keyframes bounce {
+    from,
+    20%,
+    53%,
+    80%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transform: translate3d(-50%, 0, 0);
+    }
+    40%,
+    43% {
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        transform: translate3d(-50%, -20px, 0);
+    }
+    70% {
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        transform: translate3d(-50%, -15px, 0);
+    }
+    90% {
+        transform: translate3d(-50%, -4px, 0);
+    }
+}
+
+.bounce {
+    animation: bounce 1s infinite;
+}

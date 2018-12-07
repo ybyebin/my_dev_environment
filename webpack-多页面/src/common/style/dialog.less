@@ -1,0 +1,121 @@
+.dialog{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    z-index: 999999;
+}
+.dialog.show{
+    display: flex;
+}
+.dialog-content{
+    width: 5.9rem;
+    background: #FFFFFF;
+    border-radius: 4px;
+    font-size: .3rem;
+    animation-duration: .2s;
+    animation-fill-mode: both;
+    animation-name: zoomIn;
+    animation-iteration-count:1;
+    
+}
+.dialog-tips{
+    text-align: center;
+    .tips-text{
+        padding: .65rem .2rem;
+        padding-bottom: .6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666666;
+    }
+}
+.dialog-tips-two{
+    text-align: center;
+    padding-top: .46rem;
+    padding-bottom: .4rem;
+    font-size: .3rem;
+    color: #888888;
+    .dialog-title{
+        font-size: .36rem;
+        color: #333333;
+        margin-bottom: .25rem;
+    }
+    .tips-text{
+        padding: 0 .2rem;
+    }
+
+}
+.dialog-footer{
+    border-top: 1px solid #E1E1E1;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    >div{
+        flex: 1;
+        padding: .34rem 0;
+        color: #666666;
+    }
+    >div:active{
+        background: rgba(0, 0, 0, .03);
+    }
+    >div:last-child{
+        color: #1390F4;
+        position: relative
+    }
+    >div:nth-child(2)::before{
+        position: absolute;
+        content: '';
+        width: 1px;
+        height: 55.6%;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background: #E1E1E1;
+    }
+}
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
+// <div :class="{show:dialogShow}"  class="dialog">
+//             <div class="dialog-content">
+//                 <!-- <div class="dialog-tips">
+//                     <div class="tips-text">
+//                         手机号码不能为空
+//                     </div>
+//                 </div> -->
+//                 <div class="dialog-tips-two">
+//                     <div class="dialog-title">
+//                         操作失败
+//                     </div>
+//                     <div class="tips-text">
+//                         <p>
+//                             账号或密码不一致
+//                         </p>
+                       
+
+//                     </div>
+//                 </div>
+//                 <div class="dialog-footer">
+//                         <div>取消</div>
+//                         <div>确认</div>
+//                     </div>
+//             </div>
+//         </div>
+
+ 
+

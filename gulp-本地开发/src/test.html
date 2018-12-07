@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,
+    width=device-width,initial-scale=1.0">
+    <title>费用详情</title>
+    <link rel="stylesheet" href="./css/detailsOfCost.css">
+
+    <script src="//h5.lanxiniu.com/public/js/rem.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="content">
+            <div class="header">
+                <div class="header-cost-add" v-text="orderData.incomeMoney"></div>
+                <div class="title">
+                    订单收入
+                </div>
+                <div class="list-detail">
+                    <ul>
+                        <li>
+                            <div>现金收入</div>
+                            <div v-text="orderData.incomeCash"></div>
+                        </li>
+                        <li>
+                            <div>账户余额</div>
+                            <div v-text="orderData.incomeYue"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="detail">
+                <div class="title">
+                    订单费用详情
+                </div>
+                <div class="list-detail">
+                    <ul>
+                        <li v-for="(item,index) in orderData.list">
+                            <div v-text="item.name"></div>
+                            <div v-text="item.value"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="//h5.lanxiniu.com/public/js//vue.min.js"></script>
+    <script src="//h5.lanxiniu.com/public/js/layui.js"></script>
+    <script src="./js/detailsOfCost.js"></script>
+
+
+</body>
+
+</html>
