@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,
+    width=device-width,initial-scale=1.0">
+    <title>金牌介绍</title>
+    <script src="//h5.lanxiniu.com/public/js/rem.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="header">
+            <div class="left">
+                <span :class="driverFlag"></span>
+            </div>
+            <div class="right">
+                <div>
+                    <div class="type">
+                        <span v-text="driverType">--</span>
+                        <a :href="levelDescription">
+                            <span class="actives"></span>
+                        </a>
+                    </div>
+                    <div v-text="userfulLife">--</div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div>
+                <div class="title">
+                    达标情况
+                </div>
+                <div>
+                    <div class="card">
+                        <div class="niubi">
+                            <div class="icon"></div>
+                            <div>牛币</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bg">
+                                <div id="niubi-value" class="now-value"></div>
+                                <div class="point point-gold">
+                                    <div></div>
+                                </div>
+                                <div id="niubi-silver-point" v-show="niubi.silverShow" class="point point-silver niubi-silver-point">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="point-div point-div-gold">
+                                <div>金牌</div>
+                                <div v-text="niubi.gold">0</div>
+                            </div>
+                            <div id="niubi-silver" v-show="niubi.silverShow" class="point-div point-div-silver niubi-silver">
+                                <div>银牌</div>
+                                <div v-text="niubi.silver">0</div>
+                            </div>
+                        </div>
+                        <div class="current-value">
+                            <span v-text="niubi.currentValue">当前牛币:0</span>
+                        </div>
+                        <span :class="{show:niubi.dabiao}" class="dabiao"></span>
+                    </div>
+                    <div class="card">
+                        <div class="fuwufen">
+                            <div class="icon"></div>
+                            <div>服务分</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bg">
+                                <div id="fuwu-value" class="now-value"></div>
+                                <div class="point point-gold">
+                                    <div></div>
+                                </div>
+                                <div class="point point-silver fuwu-silver-point">
+                                    <div></div>
+                                </div>
+                            </div>
+
+                            <div class="point-div point-div-gold">
+                                <div>金牌</div>
+                                <div>95</div>
+                            </div>
+                            <div class="point-div point-div-silver fuwu-silver">
+                                <div>银牌</div>
+                                <div>90</div>
+                            </div>
+                        </div>
+                        <div class="current-value">
+                            <span v-text="servicePoint.currentValue">当前服务分:0</span>
+                        </div>
+                        <span :class="{show:servicePoint.dabiao}" class="dabiao"></span>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="chengjiaolv">
+                            <div class="icon"></div>
+                            <div>成交率</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bg progress-bg-dev">
+                                <div id="cjlv-value" class="now-value"></div>
+                                <div class="point point-gold">
+                                    <div></div>
+                                </div>
+                                <div class="point point-silver cjlv-silver-point">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="point-div point-div-gold">
+                                <div>金牌</div>
+                                <div>95%</div>
+                            </div>
+                            <div class="point-div point-div-silver cjlv-silver">
+                                <div>银牌</div>
+                                <div>85%</div>
+                            </div>
+                        </div>
+                        <div class="current-value">
+                            <span v-text="turnoverRate.currentValue">当前成交率:0 </span>
+                        </div>
+                        <div :class="{show:turnoverRate.dabiao}" class="dabiao"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="exchange-des">
+                <div class="title">
+                    兑换说明
+                </div>
+                <div class="des">
+                    <p>· 需达到金牌/银牌的标准才能兑换特权</p>
+                    <p>· 金牌特权兑换时间：每月27-29日（特权有效期1个月)</p>
+                    <p>· 银牌特权兑换时间：每月1-3日(特权有效期3个月)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="div-fixed">
+            <div class="flag">
+                <div :class="{show:exchangeFlag.show}" class="tops bounce">
+                    <div class="detail">
+                        <span v-text="exchangeFlag.type"></span>
+                    </div>
+                </div>
+                <div @click="exchangeNow" class="btn-ripple btn-exchange">
+                    立即兑换
+                </div>
+            </div>
+        </div>
+
+        <div @touchmove.prevent :class="{show:dialog.show}" class="dialog">
+            <div class="dialog-content">
+                <div class="dialog-tips">
+                    <div v-text="dialog.msg" class="tips-text"></div>
+                </div>
+                <div class="dialog-footer">
+                    <div @click="dialogSure">确认</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="//h5.lanxiniu.com/public/js/vue.min.js"></script>
+    <script src="//h5.lanxiniu.com/public/js/zepto.js"></script>
+
+
+
+</body>
+
+</html>
