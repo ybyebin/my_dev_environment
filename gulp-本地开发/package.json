@@ -26,10 +26,13 @@
     "gulp-plumber": "^1.2.0",
     "gulp-rev": "^8.1.1",
     "gulp-rev-collector": "^1.2.4",
+    "gulp-sequence": "^1.0.0",
     "gulp-uglify": "^3.0.0",
     "http-proxy-middleware": "^0.18.0",
     "run-sequence": "^2.2.1",
     "shelljs": "^0.8.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "natives": "^1.1.6"
+  }
 }
