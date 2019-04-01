@@ -187,14 +187,10 @@ gulp.task('dev', ['serve']);
 //         callback);
 // });
 
-// 项目build前准备
-gulp.task('rbuild', function () {
-    gulpSequence('minjs', function () {})
-})
+
 // 默认执执行打包
 gulp.task('default', function (callback) {
     gulpSequence('clean', 'rev', 'copy', function () {})
 });
 
 
-//项目打包 先执行 gulp rbuild   再执行 gulp
