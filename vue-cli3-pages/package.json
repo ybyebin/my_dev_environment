@@ -1,0 +1,58 @@
+{
+    "name": "cli3-pages",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "new:page": "node ./scripts/pageTemp",
+        "new:comp": "node ./scripts/componentTemp"
+    },
+    "dependencies": {
+        "core-js": "^2.6.5",
+        "iview": "^3.4.2",
+        "less": "^3.9.0",
+        "less-loader": "^5.0.0",
+        "vue": "^2.6.10"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^3.9.0",
+        "@vue/cli-plugin-eslint": "^3.9.0",
+        "@vue/cli-service": "^3.9.0",
+        "babel-eslint": "^10.0.1",
+        "babel-plugin-import": "^1.12.0",
+        "chalk": "^2.4.2",
+        "compression-webpack-plugin": "^3.0.0",
+        "eslint": "^5.16.0",
+        "eslint-plugin-vue": "^5.0.0",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "rules": {},
+        "parserOptions": {
+            "parser": "babel-eslint"
+        }
+    },
+    "postcss": {
+        "plugins": {
+            "autoprefixer": {}
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "last 10 Chrome versions",
+        "last 5 Firefox versions",
+        "Safari >= 6",
+        "ie > 8"
+    ]
+}

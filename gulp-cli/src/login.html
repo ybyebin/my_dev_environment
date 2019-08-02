@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>登陆</title>
+    <link rel="stylesheet" href="../../public/iview/styles/iview.css">
+    <link rel="stylesheet" href="../../css/default.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <!-- <script src="./public/units/jquery.min.js"></script> -->
+    <script src="./public/units/zepto.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="logo">
+            <img src="./images/default/logo.png" alt="">
+        </div>
+        <div class="main">
+            <div class="login-content clearfix">
+                <div class="title">
+                    毫米波物联网数据云平台
+                </div>
+                <div class="form-div">
+                    <form action="/login" method="post" onkeydown="if(event.keyCode==13){return false;}">
+                        <div class="name-pas">
+                            <div class="div-input" :class="{'wrong':name.wrongShow}">
+                                <span class="yonghu"></span>
+                                <input readonly name="username" @input="setClear(true)" v-model="name.val" placeholder="请输入账户" autocomplete="off"
+                                    type="text">
+                                <span @click="clearVal(true)" v-show="name.clearShow" class="clear hide"></span>
+                            </div>
+                            <div class="div-input" :class="{'wrong':password.wrongShow}">
+                                <span class="mima"></span>
+                                <input readonly name="password" @input="setClear(false)" v-model="password.val" placeholder="请输入密码"
+                                    autocomplete="off" type="password">
+                                <span @click="clearVal(false)" v-show="password.clearShow" class="clear hide"></span>
+                            </div>
+
+                            <button type="submit">登 录</button>
+                            <div>
+                                <p @click="login" class="login-btn active">登录</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./public/layui/layui.js"></script>
+    <script src="../../public/units/vue.js"></script>
+    <script src="./public/iview/iview.min.js"></script>
+    <script src="./js/login.js"></script>
+
+</body>
+
+</html>
