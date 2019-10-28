@@ -19,15 +19,15 @@ const autoprefixer = require('gulp-autoprefixer'); //自动加上浏览器前缀
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
-const gulpSequence = require('gulp-sequence');
+const gulpSequence = require('gulp-sequence')
 
-var inlinesource = require('gulp-inline-source');  //内联
+const zip = require('gulp-zip');  //压缩 .zip
 
 //删除dist文件
 gulp.task('clean', function (cb) {
     return gulp.src(config.clean.src, {
-            read: false
-        })
+        read: false
+    })
         .pipe(clean())
         .on('data', function (file) {
             console.log('删除文件' + file.history[0])
@@ -37,8 +37,7 @@ gulp.task('clean', function (cb) {
 // 压缩  html
 gulp.task('minhtml', function () {
     return gulp.src(config.html.src)
-        .pipe(inlinesource())
-        // .pipe(minHtml(config.html.options))
+        .pipe(minHtml(config.html.options))
         .pipe(gulp.dest(config.html.dest))
         .on('data', function (file) {
             console.log('压缩html' + file.history[0])
@@ -97,7 +96,7 @@ gulp.task('minjsnomd5', function () {
             }
         })) //- 压缩处理成一行     
         .pipe(gulp.dest(config.models.dest)) //- 输出文件本地
-      
+
         .on('data', function (file) {
             console.log('MD5---JSJS');
         });
@@ -108,19 +107,15 @@ gulp.task('minjsnomd5', function () {
 gulp.task('rev', ['minjs'], function () {
     return gulp.src([config.rev.src, , config.html.src])
         //- 读取 rev-manifest.json 文件以及需要进行js名替换的文件
-        .pipe(inlinesource())
-        .on('data', function (file) {
-            console.log('====' + file.history[0])
-        })
         .pipe(revCollector({
             replaceReved: true,
         }))
         .pipe(minHtml(config.html.options))
-        // //- 执行文件内css名的替换
+        //- 执行文件内css名的替换
         .pipe(gulp.dest(config.html.dest))
         .on('data', function (file) {
             console.log('替换引入数据' + file.history[0])
-        })
+        });
     //- 替换后的文件输出的目录
 });
 
@@ -184,13 +179,23 @@ gulp.task('serve', function () {
         port: 2017,
         server: {
             baseDir: ['src'],
-            index: 'html/overview.html' // 指定默认打开的文件
+            index: 'html/pointPositionManage/regionManage.html' // 指定默认打开的文件
         }
     });
     gulp.watch('src/**/*.js').on('change', reload);
     gulp.watch('src/**/*.less', ['less']).on('change', reload); //当所有less文件发生改变时，调用testLess任务
     gulp.watch('src/**/*.html').on('change', reload); //当所有less文件发生改变时，调用testLess任务
 
+});
+
+// .zip
+gulp.task('zip', function () {
+    return gulp.src('dist/**/*')
+        .pipe(zip('taihangPc.zip'))
+        .pipe(gulp.dest('./'))
+        .on('data', function (file) {
+            console.log('压缩完成')
+        });
 });
 
 
@@ -201,21 +206,9 @@ gulp.task('dev', ['serve']);
 
 
 
-
-// // 默认执行
-// gulp.task('default', function(callback) {
-//     // runSequence(['copy', 'revjs'],
-//     // runSequence(['copy', 'revjs','minimg'],
-//     // runSequence(['copy', 'revjs'],
-//     // runSequence(['copy', 'revjs','publicminimg'],
-//     runSequence(['minhtml'],
-//         callback);
-// });
-
-
 // 默认执执行打包
 gulp.task('default', function (callback) {
-    gulpSequence('clean', 'rev','minjsnomd5', 'minimg','copy', function () {})
+    gulpSequence('clean', 'rev', 'minjsnomd5', 'minimg', 'copy','zip', function () { })
 });
 
 

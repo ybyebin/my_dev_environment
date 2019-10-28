@@ -1,0 +1,68 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.ios-scrolling-bug {
+    /* 针对IOS 修复 css overflow scroll bug */
+    -webkit-overflow-scrolling: auto !important;
+}
+
+.g-fix-ios-prevent-scroll {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+// 清浮动
+.clean {
+    zoom: 1;
+}
+
+.clean:after {
+    clear: both;
+    content: '.';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+// 单行文本溢出显示省略号
+.text-overflow {
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+// 多行文本溢出显示省略号
+// -----------------------------------------------------------------------------
+.line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    text-overflow: ellipsis;
+}
+
+// 按下去背景颜色
+.tap-color {
+    &:active {
+        opacity: .8;
+    }
+}
+
+// 点击透明
+.actives:active {
+    opacity: 0.8;
+}
