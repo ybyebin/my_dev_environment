@@ -1,0 +1,91 @@
+@import "../../../../index";
+.side-menu-wrapper{
+  user-select: none;
+  .menu-collapsed{
+    padding-top: 10px;
+
+    .ivu-dropdown{
+      width: 100%;
+      .ivu-dropdown-rel a{
+        width: 100%;
+      }
+    }
+    .ivu-tooltip{
+      width: 100%;
+      .ivu-tooltip-rel{
+        width: 100%;
+      }
+      .ivu-tooltip-popper .ivu-tooltip-content{
+        .ivu-tooltip-arrow{
+          border-right-color: #fff;
+        }
+        .ivu-tooltip-inner{
+          background: #fff;
+          color: #495060;
+        }
+      }
+    }
+
+
+  }
+  a.drop-menu-a{
+    display: inline-block;
+    padding: 15px 15px;
+    width: 100%;
+    text-align: center;
+    color: #495060;
+  }
+}
+.menu-title{
+  padding-left: 6px;
+}
+//收起菜单的样式
+.cmenu {
+  background-color: #001529 !important;
+  padding: 0 10px 20px 5px !important;
+
+  .menu-title {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 14px !important;
+  }
+
+  div[class*="cmenu"] {
+    margin-left: 12px !important;
+  }
+
+  .ivu-dropdown-item:hover {
+    background: @primary-color;
+  }
+
+  .ivu-dropdown-item {
+    color: hsla(0, 0%, 100%, .7);
+    transition: all .2s ease-in-out;
+    margin: 10px 0 10px 0;
+  }
+
+  .collased-menu-dropdown:hover {
+    background: @primary-color;
+  }
+
+  .ivu-icon {
+    color: #ffffff !important;
+  }
+
+  .ivu-select-dropdown {
+    padding: 0 !important;
+    background-color: #001529 !important;
+    margin-left: 15px;
+  }
+
+  .ivu-dropdown-menu {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #001529 !important;
+
+    .menu-title {
+      color: #ffffff !important;
+      font-size: 14px !important;
+    }
+
+  }
+}
